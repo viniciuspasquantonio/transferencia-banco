@@ -11,7 +11,7 @@ public class TipoTransferenciaB implements TipoTransferencia{
 		Taxa taxaBMaior30Dias = new TaxaBMaior30Dias();
 		taxaAte30Dias.setProxima(taxaBMaior30Dias);
 		taxaBMaior30Dias.setProxima(new SemTaxa());
-		return taxaAte30Dias.calcula(dataAgendamento);
+		return taxaAte30Dias.calcula(valor,dataAgendamento);
 	}
 
 }

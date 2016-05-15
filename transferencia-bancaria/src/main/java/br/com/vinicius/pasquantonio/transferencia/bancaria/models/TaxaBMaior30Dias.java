@@ -7,13 +7,13 @@ public class TaxaBMaior30Dias implements Taxa {
 
 	private Taxa proxima;
 	@Override
-	public double calcula(DateTime dataAgendamento) {
+	public double calcula(double valor,DateTime dataAgendamento) {
 		DateTime dtHoje = new DateTime();         
         Duration dur = new Duration(dtHoje,dataAgendamento); 
         if(dur.getStandardDays() > 30){
         	return 8;
         }
-        return proxima.calcula(dataAgendamento);
+        return proxima.calcula(valor,dataAgendamento);
         
 	}
 

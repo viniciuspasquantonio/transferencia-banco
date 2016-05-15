@@ -6,7 +6,7 @@ import org.joda.time.Duration;
 public class SemTaxa implements Taxa {
 
 	@Override
-	public double calcula(DateTime dataAgendamento) {
+	public double calcula(double valor,DateTime dataAgendamento) {
 		return 0;
         
 	}

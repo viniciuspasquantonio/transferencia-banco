@@ -1,6 +1,6 @@
 package br.com.vinicius.pasquantonio.transferencia.bancaria.models;
 
-import java.util.Date;
+import org.joda.time.DateTime;
 
 public class Conta {
 	private String conta;
@@ -9,7 +9,7 @@ public class Conta {
 		this.conta = conta;
 		this.saldo = saldo;
 	}
-	public void transfere(double valor,Conta contaDestino,TipoTransferencia tipoTansferencia,Date dataAgendamento) {
+	public void transfere(double valor,Conta contaDestino,TipoTransferencia tipoTansferencia,DateTime dataAgendamento) {
 		this.saldo -= valor + tipoTansferencia.calculaTaxa(valor,dataAgendamento);
 		contaDestino.saldo += valor; 
 	}

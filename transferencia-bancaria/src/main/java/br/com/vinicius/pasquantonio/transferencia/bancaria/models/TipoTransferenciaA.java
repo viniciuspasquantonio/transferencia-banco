@@ -1,10 +1,10 @@
 package br.com.vinicius.pasquantonio.transferencia.bancaria.models;
 
-import java.util.Date;
+import org.joda.time.DateTime;
 
 public class TipoTransferenciaA implements TipoTransferencia {
 
-	public double calculaTaxa(double valor, Date dataAgendamento) {
+	public double calculaTaxa(double valor, DateTime dataAgendamento) {
 		return (valor * 0.03) + 2;
 	}
 

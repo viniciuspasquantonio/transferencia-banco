@@ -1,8 +1,6 @@
 package br.com.vinicius.pasquantonio.transferencia.bancaria.models;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
+import org.joda.time.DateTime;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -14,7 +12,7 @@ public class ContaTest {
 		Conta contaOrigem = new Conta("11111­1",500);
 		Conta contaDestino = new Conta("22222­2",500);
 		TipoTransferenciaA tipo = new TipoTransferenciaA();
-		contaOrigem.transfere(120,contaDestino,tipo,new Date());
+		contaOrigem.transfere(120,contaDestino,tipo,new DateTime());
 		Assert.assertEquals(contaOrigem.getSaldo(), 374,4);
 		Assert.assertEquals(contaDestino.getSaldo(), 620,0);
 	}
@@ -25,7 +23,7 @@ public class ContaTest {
 		Conta contaDestino = new Conta("22222­2",500);
 		TipoTransferenciaB tipo = new TipoTransferenciaB();
 		
-		contaOrigem.transfere(120,contaDestino,tipo,new Date());
+		contaOrigem.transfere(120,contaDestino,tipo,new DateTime());
 		Assert.assertEquals(contaOrigem.getSaldo(), 370,0);
 		Assert.assertEquals(contaDestino.getSaldo(), 620,0);
 	}

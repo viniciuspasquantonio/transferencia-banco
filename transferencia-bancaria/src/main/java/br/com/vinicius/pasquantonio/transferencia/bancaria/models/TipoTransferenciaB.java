@@ -2,11 +2,12 @@ package br.com.vinicius.pasquantonio.transferencia.bancaria.models;
 
 import java.util.Date;
 
-public class TipoTransferenciaA implements TipoTransferencia {
+public class TipoTransferenciaB implements TipoTransferencia{
 
+	@Override
 	public double calculaTaxa(double valor, Date dataAgendamento) {
-		return (valor * 0.03) + 2;
+		
+		return 10;
 	}
-
 
 }

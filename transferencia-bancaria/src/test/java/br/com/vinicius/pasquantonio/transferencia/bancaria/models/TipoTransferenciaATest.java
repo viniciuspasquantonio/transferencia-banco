@@ -7,6 +7,6 @@ public class TipoTransferenciaATest {
 	@Test
 	public void calculaTaxaParaTransferenciaDe120(){
 		TipoTransferenciaA tipoTransferenciaA = new TipoTransferenciaA();
-		Assert.assertEquals(tipoTransferenciaA.calculaTaxa(120),5,6);
+		Assert.assertEquals(tipoTransferenciaA.calculaTaxa(120,null),5,6);
 	}
 }

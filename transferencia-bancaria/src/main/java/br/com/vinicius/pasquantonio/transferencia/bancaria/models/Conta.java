@@ -1,5 +1,7 @@
 package br.com.vinicius.pasquantonio.transferencia.bancaria.models;
 
+import java.util.Date;
+
 public class Conta {
 	private String conta;
 	private double saldo;
@@ -7,8 +9,8 @@ public class Conta {
 		this.conta = conta;
 		this.saldo = saldo;
 	}
-	public void transfere(double valor,Conta contaDestino,TipoTransferencia tipoTansferencia) {
-		this.saldo -= valor + tipoTansferencia.calculaTaxa(valor);
+	public void transfere(double valor,Conta contaDestino,TipoTransferencia tipoTansferencia,Date dataAgendamento) {
+		this.saldo -= valor + tipoTansferencia.calculaTaxa(valor,dataAgendamento);
 		contaDestino.saldo += valor; 
 	}
 	

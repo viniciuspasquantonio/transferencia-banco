@@ -2,7 +2,7 @@ package br.com.vinicius.pasquantonio.transferencia.bancaria.models;
 
 import org.joda.time.DateTime;
 
-public interface TaxaB {
+public interface Taxa {
 	double calcula(DateTime dataAgendamento);
-	void setProxima(TaxaB proxima);
+	void setProxima(Taxa proxima);
 }

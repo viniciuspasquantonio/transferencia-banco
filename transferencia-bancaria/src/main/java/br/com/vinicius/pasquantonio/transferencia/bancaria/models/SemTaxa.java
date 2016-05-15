@@ -3,7 +3,7 @@ package br.com.vinicius.pasquantonio.transferencia.bancaria.models;
 import org.joda.time.DateTime;
 import org.joda.time.Duration;
 
-public class SemTaxaB implements TaxaB {
+public class SemTaxa implements Taxa {
 
 	@Override
 	public double calcula(DateTime dataAgendamento) {
@@ -12,9 +12,10 @@ public class SemTaxaB implements TaxaB {
 	}
 
 	@Override
-	public void setProxima(TaxaB proxima) {
+	public void setProxima(Taxa proxima) {
 //		sem taxa
 		
 	}
+
 
 }

@@ -3,14 +3,13 @@ package br.com.vinicius.pasquantonio.transferencia.bancaria.models;
 import org.joda.time.DateTime;
 import org.joda.time.Duration;
 
-public class TaxaBMaior30Dias implements TaxaB {
+public class TaxaBMaior30Dias implements Taxa {
 
-	private TaxaB proxima;
+	private Taxa proxima;
 	@Override
 	public double calcula(DateTime dataAgendamento) {
 		DateTime dtHoje = new DateTime();         
         Duration dur = new Duration(dtHoje,dataAgendamento); 
-        System.out.println(dur.getStandardDays());
         if(dur.getStandardDays() > 30){
         	return 8;
         }
@@ -19,7 +18,7 @@ public class TaxaBMaior30Dias implements TaxaB {
 	}
 
 	@Override
-	public void setProxima(TaxaB proxima) {
+	public void setProxima(Taxa proxima) {
 		this.proxima = proxima;
 		
 	}

@@ -3,9 +3,9 @@ package br.com.vinicius.pasquantonio.transferencia.bancaria.models;
 import org.joda.time.DateTime;
 import org.joda.time.Duration;
 
-public class TaxaBAte30Dias implements TaxaB {
+public class TaxaBAte30Dias implements Taxa {
 
-	private TaxaB proxima;
+	private Taxa proxima;
 	@Override
 	public double calcula(DateTime dataAgendamento) {
 		DateTime dtHoje = new DateTime();         
@@ -18,7 +18,7 @@ public class TaxaBAte30Dias implements TaxaB {
 	}
 
 	@Override
-	public void setProxima(TaxaB proxima) {
+	public void setProxima(Taxa proxima) {
 		this.proxima = proxima;
 		
 	}

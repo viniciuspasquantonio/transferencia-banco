@@ -8,11 +8,13 @@ import org.junit.Test;
 
 public class TipoTransferenciaDTest {
 
+	private static final double VALOR_MENOR_IGUAL_25 = 25;
 	private static final double VALOR_MENOR_IGUAL_120 = 120;
 	private static final double VALOR_MAIOR_120 = 120.001;
 	private TipoTransferenciaD tipoTransferenciaD = new TipoTransferenciaD();
 	private TipoTransferenciaC tipoTransferenciaC = new TipoTransferenciaC();
 	private TipoTransferenciaB tipoTransferenciaB = new TipoTransferenciaB();
+	private TipoTransferenciaA tipoTransferenciaA = new TipoTransferenciaA();
 	@Test
 	public void calculaTaxaParaTransferenciaMaiorQue120ComAgendamentoMaior30Dias(){
 		Assert.assertEquals(tipoTransferenciaC.calculaTaxa(VALOR_MAIOR_120,new DateTime().plusDays(31)),tipoTransferenciaD.calculaTaxa(VALOR_MAIOR_120, new DateTime().plusDays(31)),0);
@@ -58,6 +60,11 @@ public class TipoTransferenciaDTest {
 	@Test
 	public void calculaTaxaParaTransferenciaDe120ComAgendamentoMaior30Dias(){
 		Assert.assertEquals(tipoTransferenciaB.calculaTaxa(VALOR_MENOR_IGUAL_120,new DateTime().plusDays(31)),tipoTransferenciaD.calculaTaxa(VALOR_MENOR_IGUAL_120,new DateTime().plusDays(31)),0);
+	}
+	
+	@Test
+	public void calculaTaxaParaTransferenciaDe120(){
+		Assert.assertEquals(tipoTransferenciaA.calculaTaxa(VALOR_MENOR_IGUAL_25,new DateTime()),tipoTransferenciaD.calculaTaxa(VALOR_MENOR_IGUAL_25,new DateTime()),0);
 	}
 	
 	

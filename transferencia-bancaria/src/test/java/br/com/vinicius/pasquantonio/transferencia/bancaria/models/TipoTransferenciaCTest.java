@@ -36,6 +36,13 @@ public class TipoTransferenciaCTest {
 		Assert.assertNotEquals(5.4,tipoTransferenciaC.calculaTaxa(100,new DateTime().plusDays(21)),0);
 	}
 	
+	@Test
+	public void calculaTaxaParaTransferenciaDe100ComAgendamentoAte15Dias(){
+		TipoTransferenciaC tipoTransferenciaC = new TipoTransferenciaC();
+		Assert.assertEquals(6.7,tipoTransferenciaC.calculaTaxa(100,new DateTime().plusDays(15)),0);
+		Assert.assertNotEquals(6.7,tipoTransferenciaC.calculaTaxa(100,new DateTime().plusDays(16)),0);
+	}
+	
 	
 	
 }

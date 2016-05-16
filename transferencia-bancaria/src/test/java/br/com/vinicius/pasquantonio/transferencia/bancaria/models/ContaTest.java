@@ -91,4 +91,15 @@ public class ContaTest {
 		Assert.assertEquals(394.6,contaOrigem.getSaldo(), 0);
 		Assert.assertEquals(600,contaDestino.getSaldo(), 0);
 	}
+	
+	@Test
+	public void realizaTransferenciaTipoCComAgendamentoAte15Dias(){
+		Conta contaOrigem = new Conta("11111­1",500);
+		Conta contaDestino = new Conta("22222­2",500);
+		TipoTransferenciaC tipo = new TipoTransferenciaC();
+		
+		contaOrigem.transfere(100,contaDestino,tipo,new DateTime().plusDays(15));
+		Assert.assertEquals(393.3,contaOrigem.getSaldo(), 0);
+		Assert.assertEquals(600,contaDestino.getSaldo(), 0);
+	}
 }

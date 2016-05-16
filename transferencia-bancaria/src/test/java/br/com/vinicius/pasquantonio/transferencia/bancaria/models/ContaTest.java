@@ -18,6 +18,16 @@ public class ContaTest {
 	}
 	
 	@Test
+	public void realizaTransferenciaTipoAComAgendamentoMaior30Dias(){
+		Conta contaOrigem = new Conta("11111­1",500);
+		Conta contaDestino = new Conta("22222­2",500);
+		TipoTransferenciaA tipo = new TipoTransferenciaA();
+		contaOrigem.transfere(100,contaDestino,tipo,new DateTime().plusDays(31));
+		Assert.assertEquals(395,contaOrigem.getSaldo(), 0);
+		Assert.assertEquals(600,contaDestino.getSaldo(), 0);
+	}
+	
+	@Test
 	public void realizaTransferenciaTipoBComAgendamentoAte30Dias(){
 		Conta contaOrigem = new Conta("11111­1",500);
 		Conta contaDestino = new Conta("22222­2",500);
@@ -26,5 +36,16 @@ public class ContaTest {
 		contaOrigem.transfere(120,contaDestino,tipo,new DateTime());
 		Assert.assertEquals(contaOrigem.getSaldo(), 370,0);
 		Assert.assertEquals(contaDestino.getSaldo(), 620,0);
+	}
+	
+	@Test
+	public void realizaTransferenciaTipoBComAgendamentoMaior30Dias(){
+		Conta contaOrigem = new Conta("11111­1",500);
+		Conta contaDestino = new Conta("22222­2",500);
+		TipoTransferenciaB tipo = new TipoTransferenciaB();
+		
+		contaOrigem.transfere(100,contaDestino,tipo,new DateTime().plusDays(31));
+		Assert.assertEquals(392,contaOrigem.getSaldo(),0);
+		Assert.assertEquals(600,contaDestino.getSaldo(), 0);
 	}
 }

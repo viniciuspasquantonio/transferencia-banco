@@ -8,8 +8,10 @@ public class TipoTransferenciaD implements TipoTransferencia{
 	public double calculaTaxa(double valor, DateTime dataAgendamento) {
 		
 		Taxa taxaMaior120Reais= new TaxaDMaior120Reais();
+		Taxa taxaAte120Reais= new TaxaDAte120Reais();
+		taxaAte120Reais.setProxima(taxaMaior120Reais);
 		taxaMaior120Reais.setProxima(new SemTaxa());
-		return taxaMaior120Reais.calcula(valor,dataAgendamento);
+		return taxaAte120Reais.calcula(valor,dataAgendamento);
 	}
 
 }

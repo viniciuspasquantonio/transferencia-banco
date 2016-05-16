@@ -9,9 +9,11 @@ public class TipoTransferenciaC implements TipoTransferencia{
 		
 		Taxa taxaMaior30Dias = new TaxaCMaior30Dias();
 		Taxa taxaAte30Dias = new TaxaCAte30Dias();
-		taxaMaior30Dias.setProxima(taxaAte30Dias);
-		taxaAte30Dias.setProxima(new SemTaxa());
-		return taxaMaior30Dias.calcula(valor,dataAgendamento);
+		TaxaCAte25Dias taxaCAte25Dias = new TaxaCAte25Dias();
+		taxaCAte25Dias.setProxima(taxaAte30Dias);
+		taxaAte30Dias.setProxima(taxaMaior30Dias);
+		taxaMaior30Dias.setProxima(new SemTaxa());
+		return taxaCAte25Dias.calcula(valor,dataAgendamento);
 	}
 
 }

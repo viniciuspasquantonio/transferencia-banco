@@ -9,6 +9,7 @@ public class ContaTest {
 	
 	private static final double VALOR_MAIOR_120 = 120.001;
 	private static final double VALOR_MENOR_IGUAL_120 = 120;
+	private static final double VALOR_MENOR_IGUAL_25 = 25;
 
 	@Test
 	public void realizaTransferenciaTipoA(){
@@ -281,4 +282,37 @@ public class ContaTest {
 		Assert.assertEquals(contaOrigem.getSaldo(),outraContaOrigem.getSaldo(), 0);
 		Assert.assertEquals(contaDestino.getSaldo(),outraContaDestino.getSaldo(), 0);
 	}
+	
+	@Test
+	public void realizaTransferenciaTipoDComValorAte25Reais(){
+		Conta contaOrigem = new Conta("11111­1",500);
+		Conta contaDestino = new Conta("22222­2",500);
+		TipoTransferenciaA tipo = new TipoTransferenciaA();
+		contaOrigem.transfere(VALOR_MENOR_IGUAL_25,contaDestino,tipo,new DateTime());
+		
+		Conta outraContaOrigem = new Conta("11111­2",500);
+		Conta outraContaDestino = new Conta("22222­3",500);
+		TipoTransferenciaD tipoD = new TipoTransferenciaD();
+		outraContaOrigem.transfere(VALOR_MENOR_IGUAL_25,outraContaDestino,tipoD,new DateTime());
+		
+		Assert.assertEquals(contaOrigem.getSaldo(),outraContaOrigem.getSaldo(), 0);
+		Assert.assertEquals(contaDestino.getSaldo(),outraContaDestino.getSaldo(), 0);
+	}
+	
+	@Test
+	public void realizaTransferenciaTipoDComValorAte25ReaisEComAgendamentoMaior30Dias(){
+		Conta contaOrigem = new Conta("11111­1",500);
+		Conta contaDestino = new Conta("22222­2",500);
+		TipoTransferenciaA tipo = new TipoTransferenciaA();
+		contaOrigem.transfere(VALOR_MENOR_IGUAL_25,contaDestino,tipo,new DateTime().plusDays(31));
+		
+		Conta outraContaOrigem = new Conta("11111­2",500);
+		Conta outraContaDestino = new Conta("22222­3",500);
+		TipoTransferenciaD tipoD = new TipoTransferenciaD();
+		outraContaOrigem.transfere(VALOR_MENOR_IGUAL_25,outraContaDestino,tipoD,new DateTime(31));
+		
+		Assert.assertEquals(contaOrigem.getSaldo(),outraContaOrigem.getSaldo(), 0);
+		Assert.assertEquals(contaDestino.getSaldo(),outraContaDestino.getSaldo(), 0);
+	}
+	
 }

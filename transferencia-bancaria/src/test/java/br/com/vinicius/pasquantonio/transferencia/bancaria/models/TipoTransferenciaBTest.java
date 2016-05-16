@@ -10,6 +10,7 @@ public class TipoTransferenciaBTest {
 	public void calculaTaxaParaTransferenciaDe120ComAgendamentoAte30Dias(){
 		TipoTransferenciaB tipoTransferenciaB = new TipoTransferenciaB();
 		Assert.assertEquals(tipoTransferenciaB.calculaTaxa(120,new DateTime()),10,0);
+		Assert.assertEquals(tipoTransferenciaB.calculaTaxa(120,new DateTime().plusDays(30)),10,0);
 	}
 	
 	@Test

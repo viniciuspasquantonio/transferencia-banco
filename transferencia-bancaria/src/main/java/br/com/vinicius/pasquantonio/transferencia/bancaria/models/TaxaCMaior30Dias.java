@@ -1,7 +1,7 @@
 package br.com.vinicius.pasquantonio.transferencia.bancaria.models;
 
 import org.joda.time.DateTime;
-import org.joda.time.Duration;
+import org.joda.time.Days;
 
 public class TaxaCMaior30Dias implements Taxa {
 
@@ -9,10 +9,7 @@ public class TaxaCMaior30Dias implements Taxa {
 	@Override
 	public double calcula(double valor,DateTime dataAgendamento) {
 		DateTime dtHoje = new DateTime();         
-        Duration dur = new Duration(dtHoje,dataAgendamento);
-        System.out.println(dur.getStandardDays()+1);
-        if(dur.getStandardDays()+1 > 30){
-        	System.out.println(valor*0.012);
+        if(Days.daysBetween(dtHoje.toLocalDate(), dataAgendamento.toLocalDate()).getDays() > 30){
         	return valor*0.012;
         }
         return proxima.calcula(valor,dataAgendamento);

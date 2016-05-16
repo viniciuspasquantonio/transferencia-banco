@@ -9,8 +9,10 @@ public class TaxaCMaior30Dias implements Taxa {
 	@Override
 	public double calcula(double valor,DateTime dataAgendamento) {
 		DateTime dtHoje = new DateTime();         
-        Duration dur = new Duration(dtHoje,dataAgendamento); 
-        if(dur.getStandardDays() > 30){
+        Duration dur = new Duration(dtHoje,dataAgendamento);
+        System.out.println(dur.getStandardDays()+1);
+        if(dur.getStandardDays()+1 > 30){
+        	System.out.println(valor*0.012);
         	return valor*0.012;
         }
         return proxima.calcula(valor,dataAgendamento);

@@ -10,7 +10,7 @@ public class TaxaBAte30Dias implements Taxa {
 	public double calcula(double valor,DateTime dataAgendamento) {
 		DateTime dtHoje = new DateTime();         
         Duration dur = new Duration(dtHoje,dataAgendamento); 
-        if(dur.getStandardDays() <= 30){
+        if(dur.getStandardDays()+1 <= 30){
         	return 10;
         }
         return proxima.calcula(valor,dataAgendamento);

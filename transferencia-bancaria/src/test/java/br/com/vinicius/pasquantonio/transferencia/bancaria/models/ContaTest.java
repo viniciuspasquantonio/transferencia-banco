@@ -13,7 +13,7 @@ public class ContaTest {
 		Conta contaDestino = new Conta("22222­2",500);
 		TipoTransferenciaA tipo = new TipoTransferenciaA();
 		contaOrigem.transfere(120,contaDestino,tipo,new DateTime());
-		Assert.assertEquals(contaOrigem.getSaldo(), 374,4);
+		Assert.assertEquals(contaOrigem.getSaldo(), 374.4,0);
 		Assert.assertEquals(contaDestino.getSaldo(), 620,0);
 	}
 	

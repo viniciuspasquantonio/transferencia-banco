@@ -12,12 +12,14 @@ public class TipoTransferenciaC implements TipoTransferencia{
 		Taxa taxaCAte25Dias = new TaxaCAte25Dias();
 		Taxa taxaCAte20Dias = new TaxaCAte20Dias();
 		Taxa taxaCAte15Dias = new TaxaCAte15Dias();
+		Taxa taxaCAte10Dias = new TaxaCAte10Dias();
+		taxaCAte10Dias.setProxima(taxaCAte15Dias);
 		taxaCAte15Dias.setProxima(taxaCAte20Dias);
 		taxaCAte20Dias.setProxima(taxaCAte25Dias);
 		taxaCAte25Dias.setProxima(taxaAte30Dias);
 		taxaAte30Dias.setProxima(taxaMaior30Dias);
 		taxaMaior30Dias.setProxima(new SemTaxa());
-		return taxaCAte15Dias.calcula(valor,dataAgendamento);
+		return taxaCAte10Dias.calcula(valor,dataAgendamento);
 	}
 
 }
